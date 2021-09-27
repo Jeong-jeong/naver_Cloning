@@ -353,7 +353,7 @@ $grid-gap: 10px;
           position: relative;
           &::after {
             @extend %channel__item--img;
-            background: url('/assets/imgs/channel__item\(1\).png') no-repeat;
+            background: url("/assets/imgs/channel__item\(1\).png") no-repeat;
             background-size: contain;
             top: $channel__item--pd;
             margin-left: $channel--inner-pd;
@@ -364,7 +364,7 @@ $grid-gap: 10px;
           position: relative;
           &::after {
             @extend %channel__item--img;
-            background: url('/assets/imgs/channel__item\(2\).jpeg') no-repeat;
+            background: url("/assets/imgs/channel__item\(2\).jpeg") no-repeat;
             background-size: contain;
             top: $channel__item--pd;
             margin-left: $channel--inner-pd;
@@ -401,7 +401,7 @@ $grid-gap: 10px;
           position: relative;
           &::after {
             @extend %channel__item--img;
-            background: url('/assets/imgs/channel__item\(3\).jpeg') no-repeat;
+            background: url("/assets/imgs/channel__item\(3\).jpeg") no-repeat;
             background-size: contain;
             top: $channel__item--pd;
             left: $channel__item--pd;
@@ -412,7 +412,7 @@ $grid-gap: 10px;
           position: relative;
           &::after {
             @extend %channel__item--img;
-            background: url('/assets/imgs/channel__item\(4\).png') no-repeat;
+            background: url("/assets/imgs/channel__item\(4\).png") no-repeat;
             background-size: contain;
             top: $channel__item--pd;
             left: $channel__item--pd;
