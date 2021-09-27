@@ -1,0 +1,57 @@
+@use '../modules/icons';
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 146px;
+  padding: 5px;
+  @include flexbox($jc: between, $ai: start);
+
+  &__menu {
+    @include icons.getBasicUsersIco;
+    @include clipImage($x: 0, $y: -145px);
+    z-index: $header__childrens;
+  }
+
+  &__users {
+    z-index: $header__childrens;
+
+    &__list {
+      @include flexbox();
+
+      [class^='users__item'] {
+        @include icons.getBasicUsersIco;
+      }
+
+      .users__item {
+        &--qr {
+          @include clipImage($w: 70px, $x: -195px, $y: -138px);
+        }
+
+        &--pay {
+          @include clipImage($x: -88px, $y: -192px);
+        }
+
+        &--alert {
+          @include clipImage($x: -45px, $y: -191px);
+        }
+
+        &--logout {
+          @include clipImage($x: -216px, $y: -77px);
+        }
+      }
+    }
+  }
+
+  &__img {
+    @include pos-center-x;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    img {
+      margin: 0 auto;
+      height: 100%;
+    }
+  }
+}

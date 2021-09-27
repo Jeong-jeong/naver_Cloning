@@ -1,0 +1,110 @@
+@use '../modules/icons';
+@use 'sass:color';
+
+$search--height: 50px;
+$search--padding: 10px;
+$search--border: 30px;
+$service__icons__logo--size: 40px;
+$service__icons--size: 32px;
+$service__icons--margin: 35px;
+$gnb__padding: 24px 0 37px;
+$gnb__item--height: 76px;
+$gnb__img--size: 44px;
+$gnb__list--max-width: 352px;
+$gnb--margin: 5px;
+$gnb__item__min_width: calc($gnb__list--max-width / 4) - ($gnb--margin * 2);
+
+.service {
+  position: relative;
+  top: -20px;
+  max-width: 488px;
+  margin: 0 auto;
+
+  &__search {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: $global-padding;
+
+    & > input {
+      width: 100%;
+      height: $search--height;
+      border-radius: $search--border;
+      border: 1px solid $green;
+      padding-left: $search--padding + $service__icons__logo--size +
+        $service__icons--margin;
+      padding-right: $service__icons--size + $service__icons--margin;
+      box-shadow: $box-shadow;
+
+      &::placeholder {
+        color: color.adjust($color: $tertiary, $lightness: 20%);
+      }
+    }
+
+    [class^='service__icons'] {
+      @include pos-center-y;
+      @include icons.getBasicUsersIco;
+      background-color: $green;
+    }
+
+    .service__icons {
+      &--logo {
+        left: $service__icons--margin;
+
+        @include clipImage(
+          $w: $service__icons__logo--size,
+          $h: $service__icons__logo--size,
+          $x: 0px,
+          $y: -194px
+        );
+      }
+
+      &--voice {
+        @include pos-center-y;
+        @include clipImage(
+          $w: $service__icons--size,
+          $h: $service__icons--size,
+          $x: -135px,
+          $y: -194px
+        );
+        right: $service__icons--margin;
+      }
+    }
+  }
+
+  &__gnb {
+    padding: $gnb__padding;
+    &__list {
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: repeat(2, $gnb__item--height);
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax($gnb__item__min_width, 4fr)
+      );
+      max-width: $gnb__list--max-width;
+
+      .gnb__item {
+        width: 100%;
+        & > a {
+          @include flexbox();
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+        }
+
+        & img {
+          display: inline-block;
+          width: $gnb__img--size;
+          height: $gnb__img--size;
+        }
+
+        &__txt {
+          @include font($size: 11px, $w: 500, $lh: 15px, $ls: -0.55px);
+          margin-top: $gnb--margin;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+body {
+  background-color: $sm-background;
+
+  @include responsive(md) {
+    background-color: $global-background;
+  }
+}

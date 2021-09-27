@@ -1,0 +1,583 @@
+@use '/styles/modules/icons';
+@use 'sass:color';
+
+// 지역 변수
+$bnr__img--w: 375px;
+$bnr__img--h: 80px;
+
+$card--br: 5px;
+$card-padding: 20px;
+$card--inner-pd: 10px;
+$card__handout--img--w: 320px;
+$card__ad--pos: 5px;
+$card__ico--size: 52px;
+
+$btn__wrapper--br: 40px;
+
+$ico--margin: 5px;
+$ico--light-gray: color.adjust(
+  $color: $secondary,
+  $lightness: 30%,
+);
+$channel__item--pd: 15px;
+$channel__item--row-pd: 70px;
+$channel--inner-pd: 5px;
+
+$grid-gap: 10px;
+// 지역 변수 끝
+
+// placeholder 모음
+%card {
+  width: 100%;
+  padding: $card-padding;
+  background-color: $white;
+  border-radius: $card--br;
+  box-shadow: $box-shadow;
+}
+
+%btn--wrapper {
+  @include flexbox($jc: around);
+  @include font($lh: 44px, $color: $secondary);
+  width: 100%;
+  border-radius: $btn__wrapper--br;
+  background-color: $background--darker;
+
+  a {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+
+    &:not(:last-child):after {
+      position: absolute;
+      right: 0;
+      content: '|';
+      color: $ico--light-gray;
+    }
+  }
+}
+
+%channel--base {
+  .channel__item {
+    display: block;
+    width: 70%;
+    padding: $channel__item--pd 0;
+    margin: $grid-gap 0;
+    background-color: $white;
+    box-shadow: $box-shadow;
+    white-space: nowrap;
+    &--title {
+      @include font($w: 600, $lh: 17px, $ls: -0.65px);
+    }
+
+    &--desc {
+      @include font($size: 13px, $w: 500, $lh: 16px, $ls: -0.61px);
+      margin-top: 3px;
+
+      strong {
+        font-weight: inherit;
+      }
+    }
+  }
+}
+// placeholder 모음 끝
+
+.events {
+  .banner {
+    height: 80px;
+    a {
+      display: block;
+      margin: 0 auto;
+      max-height: $bnr__img--h;
+      max-width: $bnr__img--w;
+    }
+  }
+
+  .cards {
+    display: grid;
+    gap: $grid-gap 0;
+    padding: $global-padding;
+
+    .card-wrapper {
+      & > *:not(:last-child) {
+        margin-bottom: $grid-gap;
+      }
+    }
+
+    // -- 초기화 --
+    [class^='cards'] {
+      @extend %card;
+    }
+
+    [class$='now'] {
+      padding-bottom: 0;
+    }
+
+    [class$='handout'] {
+      padding: 0 16px;
+    }
+
+    [class$='ad'] {
+      padding: 0;
+    }
+
+    [class$='channel'] {
+      background-color: inherit;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    [class$='covid-alert'] {
+      padding: $card-padding 0;
+    }
+
+    [class$='today-naver'] {
+      background-color: inherit;
+      box-shadow: none;
+      border-radius: 0;
+    }
+    // -- 초기화 끝 --
+
+    &--weather {
+      .weather--wrapper {
+        @include flexbox($jc: between);
+      }
+
+      .weather__info {
+        position: relative;
+        @include flexbox($jc: start);
+
+        &--main {
+          @include font($size: 16px);
+
+          .temp {
+            font-size: 19px;
+            vertical-align: middle;
+          }
+        }
+
+        &--sub {
+          @include font($lh: 20px);
+
+          .state {
+            &.good {
+              color: $blue;
+            }
+
+            &.normal {
+              color: $green;
+            }
+          }
+        }
+
+        &::before {
+          @include icons.getWeatherIco;
+          @include clipImage($w: 40px, $h: 40px, $x: -347px, $y: -142px);
+          content: '';
+          margin-right: $ico--margin;
+        }
+        &::after {
+          position: absolute;
+          content: '';
+          @include icons.getWeatherIco;
+          @include clipImage($w: 15px, $h: 15px, $x: -388px, $y: -368px);
+          top: 0;
+        }
+      }
+
+      .weather--place {
+        strong {
+          @include font($size: 14px, $color: $secondary);
+          margin-right: 5px;
+        }
+
+        &::after {
+          content: '';
+          vertical-align: middle;
+          @include icons.getEventsIco;
+          @include clipImage($w: 16px, $h: 16px, $x: -297px, $y: -297px);
+        }
+      }
+
+      .weather--txt {
+        @include font($size: 15px, $lh: 20px, $color: $secondary);
+        text-align: center;
+        padding-top: $card-padding;
+      }
+    }
+
+    &--now {
+      overflow: hidden;
+      .now--logo {
+        @include icons.getEventsIco;
+        @include clipImage($w: 48px, $h: 14px, $x: -215px, $y: -318px);
+      }
+
+      .now__list {
+        overflow-x: auto;
+        display: flex;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .now__item {
+          padding-right: $card--inner-pd;
+          padding-bottom: $card-padding;
+          a {
+            display: block;
+
+            img {
+              max-width: 100px;
+              height: 138px;
+              border-radius: $card--br;
+            }
+
+            .now__item--title {
+              @include font($size: 15px);
+              white-space: normal;
+            }
+          }
+        }
+      }
+
+      .button--wrapper {
+        @extend %btn--wrapper;
+      }
+    }
+
+    &--handout {
+      a {
+        display: block;
+        width: 100%;
+      }
+      img {
+        margin: 0 auto;
+        width: $card__handout--img--w;
+      }
+    }
+
+    &--ad {
+      position: relative;
+      a {
+        height: 100%;
+        display: block;
+      }
+      &::after {
+        position: absolute;
+        right: $card__ad--pos;
+        bottom: $card__ad--pos;
+        content: '';
+        background: url(/assets/imgs/ico__ad.png) no-repeat;
+        background-size: contain;
+        width: 26px;
+        height: 18px;
+      }
+    }
+
+    &--covid-alert {
+      .covid--wrapper {
+        @include flexbox($jc: around);
+        position: relative;
+      }
+
+      .covid__info {
+        @include flexbox($jc: start);
+
+        &:not(:last-child)::after {
+          @include pos-center-x;
+          content: '';
+          width: 1px;
+          height: 100%;
+          background-color: $line--mini;
+        }
+
+        &.state {
+          padding-right: $card--inner-pd;
+          &::before {
+            @include icons.getEventsIco;
+            @include clipImage($w: 38px, $h: 38px, $x: -306px, $y: -43px);
+            content: '';
+            margin-right: $ico--margin;
+          }
+        }
+
+        &.vaccine {
+          margin-left: $card-padding;
+
+          &::before {
+            @include icons.getEventsIco;
+            @include clipImage($w: 38px, $h: 38px, $x: -306px, $y: -124px);
+            content: '';
+            margin-right: $ico--margin;
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+
+    &--channel {
+      @extend %channel--base;
+      height: 100%;
+      %channel__item--img {
+        position: absolute;
+        width: $card__ico--size;
+        height: $card__ico--size;
+
+        content: '';
+        border-radius: 50%;
+        border: 1px solid rgb(0, 0, 0, 0.05);
+      }
+
+      .channel__item--desc {
+        & > * {
+          @include getEllipsis;
+        }
+      }
+
+      .channel__item.purple {
+        position: relative;
+        text-align: right;
+        padding-right: $channel__item--row-pd;
+        padding-left: $card-padding * 2;
+        border-radius: 0 $channel__item--row-pd $channel__item--row-pd 0;
+
+        &::before {
+          @include icons.getEventsIco;
+          @include clipImage($w: 20px, $h: 16px, $x: -214px, $y: -188px);
+          @include pos-center-y;
+          left: $channel__item--pd;
+          content: '';
+        }
+
+        &.fashion {
+          position: relative;
+          &::after {
+            @extend %channel__item--img;
+            background: url('/assets/imgs/channel__item\(1\).png') no-repeat;
+            background-size: contain;
+            top: $channel__item--pd;
+            margin-left: $channel--inner-pd;
+          }
+        }
+
+        &.book {
+          position: relative;
+          &::after {
+            @extend %channel__item--img;
+            background: url('/assets/imgs/channel__item\(2\).jpeg') no-repeat;
+            background-size: contain;
+            top: $channel__item--pd;
+            margin-left: $channel--inner-pd;
+          }
+        }
+
+        .channel__item {
+          &--title {
+            color: $purple;
+          }
+        }
+      }
+
+      .channel__item.green {
+        position: relative;
+        padding-left: $channel__item--row-pd;
+        padding-right: $card-padding * 2;
+        border-radius: $channel__item--row-pd 0 0 $channel__item--row-pd;
+        margin-left: auto;
+
+        dl {
+          margin-left: $channel--inner-pd;
+        }
+
+        &::before {
+          @include icons.getEventsIco;
+          @include clipImage($w: 20px, $h: 16px, $x: -349px, $y: -319px);
+          @include pos-center-y;
+          right: $channel__item--pd;
+          content: '';
+        }
+
+        &.health {
+          position: relative;
+          &::after {
+            @extend %channel__item--img;
+            background: url('/assets/imgs/channel__item\(3\).jpeg') no-repeat;
+            background-size: contain;
+            top: $channel__item--pd;
+            left: $channel__item--pd;
+          }
+        }
+
+        &.webtoon {
+          position: relative;
+          &::after {
+            @extend %channel__item--img;
+            background: url('/assets/imgs/channel__item\(4\).png') no-repeat;
+            background-size: contain;
+            top: $channel__item--pd;
+            left: $channel__item--pd;
+          }
+        }
+
+        .channel__item {
+          &--title {
+            color: $green;
+          }
+        }
+      }
+    }
+
+    &--today-naver {
+      .tn {
+        &__title {
+          &--wrapper {
+            @include flexbox($jc: between);
+            border-top: 1px solid $division;
+            padding: $card-padding 0 $card--inner-pd;
+          }
+
+          @include icons.getEventsIco;
+          @include clipImage($w: 77px, $h: 16px, $x: -215px, $y: -297px);
+        }
+        &--more {
+          @include font($lh: 17px, $color: $secondary);
+          vertical-align: top;
+          &::after {
+            display: inline-block;
+            content: '';
+            width: 7px;
+            height: 7px;
+            border: 1px solid $ico--light-gray;
+            border-width: 1px 1px 0 0;
+            transform: rotate(45deg);
+          }
+        }
+
+        &__slider {
+          border-radius: $card--br;
+          background-color: $white;
+          box-shadow: $box-shadow;
+
+          &__btn {
+            @include flexbox;
+            padding: $card--inner-pd;
+
+            &__dot {
+              width: 7px;
+              height: 7px;
+              border-radius: 50%;
+              background-color: $ico--light-gray;
+              margin-right: $card--inner-pd;
+
+              &.is-active {
+                background-color: $green;
+              }
+            }
+          }
+
+          .slider {
+            &__item {
+              display: block;
+
+              img {
+                width: 100%;
+                border-radius: $card--br;
+              }
+            }
+
+            &__info {
+              position: relative;
+              padding: $card--inner-pd;
+              padding-left: ($card--inner-pd * 2) + $card__ico--size;
+
+              &::before {
+                position: absolute;
+                left: $card--inner-pd;
+                content: '';
+                background: url(/assets/imgs/ico__tn--logo.png) no-repeat;
+                background-size: contain;
+                border-radius: 50%;
+                border: 1px solid rgb(0, 0, 0, 0.05);
+                width: $card__ico--size;
+                height: $card__ico--size;
+              }
+
+              &--title {
+                @include font($size: 15px, $w: 600, $lh: 19px);
+              }
+              &--desc {
+                @include font($size: 13px, $lh: 16px, $color: $tertiary);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 미디어쿼리 태블릿 분기
+    @include responsive(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(9, 90px);
+      gap: $grid-gap $grid-gap;
+
+      &--weather {
+        grid-row: 1 / span 2;
+      }
+
+      &--now {
+        grid-row: 1 / span 3;
+        height: 100%;
+
+        .button--wrapper {
+          position: relative;
+          bottom: $grid-gap;
+        }
+      }
+
+      .card-wrapper {
+        grid-row: 3 / span 2;
+      }
+
+      &--ad {
+        img {
+          width: 100%;
+          max-height: 125px;
+        }
+      }
+    }
+
+    // 미디어쿼리 데스크탑 분기
+    @include responsive(lg) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      &--now {
+        grid-row: 1 / span 4;
+      }
+
+      .card-wrapper {
+        grid-row: 1 / span 2;
+      }
+
+      &--covid-alert {
+        grid-row-start: 3;
+        grid-column-start: 3;
+      }
+
+      &--channel {
+        grid-row-start: 3;
+      }
+
+      &--ad {
+        img {
+          width: 100%;
+          max-height: 115px;
+        }
+      }
+
+      &--today-naver {
+        grid-row-start: 5;
+        grid-column-start: 2;
+      }
+    }
+  }
+}

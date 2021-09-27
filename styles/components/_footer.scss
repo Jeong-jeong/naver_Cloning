@@ -1,0 +1,42 @@
+@use '../modules/icons';
+
+$detail--pd: 10px;
+$logo--mg: 15px;
+$footer--pd: 35px 0 70px;
+
+.footer {
+  padding: $footer--pd;
+
+  &__detail--wrapper {
+    @include flexbox();
+    flex-direction: column;
+  }
+
+  &__detail {
+    @include font($size: 13px, $lh: 16px, $color: $tertiary);
+    padding-bottom: $detail--pd;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    span {
+      position: relative;
+      display: inline-block;
+      padding: 0 $detail--pd;
+
+      &:not(:last-child):after {
+        position: absolute;
+        right: 0;
+        content: '|';
+        color: $division;
+      }
+    }
+  }
+
+  &--logo {
+    @include icons.getFooterIco;
+    @include clipImage($w: 74px, $h: 14px, $x: 0, $y: -100px);
+    margin-top: $logo--mg;
+  }
+}

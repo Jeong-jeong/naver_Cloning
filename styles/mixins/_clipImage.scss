@@ -1,0 +1,10 @@
+@mixin clipImage($w: false, $h: false, $x, $y) {
+  @if ($w) {
+    width: $w;
+  }
+  @if ($h) {
+    height: $h;
+  }
+  display: inline-block;
+  background-position: $x $y;
+}

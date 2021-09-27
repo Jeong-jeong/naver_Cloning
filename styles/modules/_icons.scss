@@ -1,0 +1,26 @@
+$ico__users--url: '/assets/imgs/ico__users.png';
+$ico__events--url: '/assets/imgs/ico__events.png';
+$ico__weather--url: '/assets/imgs/ico__weather.png';
+$ico__footer--url: '/assets/imgs/ico__footer.png';
+
+@mixin getBasicUsersIco {
+  background: url($ico__users--url) no-repeat;
+  width: 44px;
+  height: 44px;
+  background-size: 323px 234px;
+}
+
+@mixin getEventsIco {
+  background: url($ico__events--url) no-repeat;
+  background-size: 384px 381px;
+}
+
+@mixin getWeatherIco {
+  background: url($ico__weather--url) no-repeat;
+  background-size: 472px 447px;
+}
+
+@mixin getFooterIco {
+  background: url($ico__footer--url) no-repeat;
+  background-size: 196px 182px;
+}

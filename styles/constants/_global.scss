@@ -1,0 +1,12 @@
+.visually-hidden {
+  // 레이아웃 영향 X
+  position: absolute;
+  // 스크린리더 O
+  width: 1px;
+  height: 1px;
+  // 보이지 않게
+  clip: rect(0 0 0 0);
+  // 시야 밖으로 보냄
+  margin: -1px;
+  overflow: hidden;
+}
