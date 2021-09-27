@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/modern-css-reset/dist/reset.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>NAVER</title>
+    <link rel="stylesheet" href="./styles/style.scss" />
+  </head>
+  <body>
+    <header class="header">
+      <button
+        class="header__menu"
+        type="button"
+        aria-label="메뉴 버튼"
+      ></button>
+      <nav class="header__users">
+        <ul class="header__users__list">
+          <li>
+            <a class="users__item--qr" href="" aria-label="QR 체크인"></a>
+          </li>
+          <li>
+            <a class="users__item--pay" href="" aria-label="네이버페이"></a>
+          </li>
+          <li>
+            <a class="users__item--alert" href="" aria-label="알람"></a>
+          </li>
+          <li>
+            <a class="users__item--logout" href="" aria-label="마이 메뉴"></a>
+          </li>
+        </ul>
+      </nav>
+      <a class="header__img" href="/">
+        <img src="./assets/imgs/header.png" alt="추석 이미지" />
+      </a>
+    </header>
+
+    <section class="service">
+      <h2 class="visually-hidden">서비스 모음</h2>
+      <form class="service__search" action="">
+        <input type="text" placeholder="검색어를 입력해주세요" />
+        <a class="service__icons--logo" href="" aria-label="홈으로"></a>
+        <a class="service__icons--voice" href="" aria-label="음성검색"></a>
+      </form>
+
+      <nav class="service__gnb">
+        <ol class="service__gnb__list">
+          <li class="gnb__item">
+            <a href="" aria-label="뉴스판으로"
+              ><img src="./assets/imgs/ico__service--news.png" alt="" />
+              <p class="gnb__item__txt">뉴스판</p>
+            </a>
+          </li>
+          <li class="gnb__item">
+            <a href="" aria-label="쇼핑판으로"
+              ><img src="./assets/imgs/ico__service--sp.png" alt="" />
+              <p class="gnb__item__txt">쇼핑판</p>
+            </a>
+          </li>
+          <li class="gnb__item">
+            <a href="" aria-label="경제지표판으로"
+              ><img src="./assets/imgs/ico__service--graph.png" alt="" />
+              <p class="gnb__item__txt">경제지표판</p>
+            </a>
+          </li>
+          <li class="gnb__item">
+            <a href="" aria-label="연예판으로"
+              ><img src="./assets/imgs/ico__service--love.png" alt="" />
+              <p class="gnb__item__txt">연예판</p>
+            </a>
+          </li>
+          <li class="gnb__item">
+            <a href="" aria-label="메일 보기"
+              ><img src="./assets/imgs/ico__service--mail.png" alt="" />
+              <p class="gnb__item__txt">메일</p>
+            </a>
+          </li>
+          <li class="gnb__item">
+            <a href="" aria-label="카페 보기"
+              ><img src="./assets/imgs/ico__service--cafe.png" alt="" />
+              <p class="gnb__item__txt">카페</p>
+            </a>
+          </li>
+          <li class="gnb__item">
+            <a href="" aria-label="블로그 보기"
+              ><img src="./assets/imgs/ico__service--blog.png" alt="" />
+              <p class="gnb__item__txt">블로그</p>
+            </a>
+          </li>
+          <li class="gnb__item">
+            <a href="" aria-label="기타 열기"
+              ><img src="./assets/imgs/ico__service--etc.png" alt="" />
+              <p class="gnb__item__txt">ㅤ</p></a
+            >
+          </li>
+        </ol>
+      </nav>
+    </section>
+
+    <main class="events">
+      <aside class="banner">
+        <a href="">
+          <img src="./assets/imgs/banner--ad.png" alt="배너 광고" />
+        </a>
+      </aside>
+      <article class="cards">
+        <section class="cards--weather">
+          <h2 class="visually-hidden">날씨</h2>
+          <div class="weather--wrapper">
+            <dl class="weather__info">
+              <div class="weather__info--wrapper">
+                <dt class="weather__info--main">
+                  <strong class="location"
+                    ><em class="temp">29° </em>대전</strong
+                  >
+                </dt>
+                <dd class="weather__info--sub">
+                  미세 <em class="state good">좋음</em> · 초미세
+                  <em class="state normal">보통</em>
+                </dd>
+              </div>
+            </dl>
+            <button class="weather--place"><strong>내 위치찾기</strong></button>
+          </div>
+          <p class="weather--txt">
+            위치 찾기를 눌러 현 위치의 시간대별·주간날씨와<br />미세먼지 예보를
+            여기에서 바로 보세요
+          </p>
+        </section>
+        <section class="cards--now">
+          <h2 class="now--logo"><span class="visually-hidden">나우</span></h2>
+          <div class="now__list--scroll">
+            <ul class="now__list">
+              <li class="now__item">
+                <a href=""
+                  ><img src="/assets/imgs/now__item(1).png" alt="" /><strong
+                    class="now__item--title"
+                    >Check-In 🗝 이 하 이 ❤</strong
+                  ></a
+                >
+              </li>
+              <li class="now__item">
+                <a href=""
+                  ><img src="/assets/imgs/now__item(2).png" alt="" /><strong
+                    class="now__item--title"
+                    >그시절 그음악~ 추억 속으로</strong
+                  ></a
+                >
+              </li>
+              <li class="now__item">
+                <a href=""
+                  ><img src="/assets/imgs/now__item(3).png" alt="" /><strong
+                    class="now__item--title"
+                    >9.24(금) 12PM ITZY 컴백쇼</strong
+                  ></a
+                >
+              </li>
+              <li class="now__item">
+                <a href=""
+                  ><img src="/assets/imgs/now__item(4).png" alt="" /><strong
+                    class="now__item--title"
+                    >올데이 야작실 고퀄 밴드라이브</strong
+                  ></a
+                >
+              </li>
+              <li class="now__item">
+                <a href=""
+                  ><img src="/assets/imgs/now__item(5).png" alt="" /><strong
+                    class="now__item--title"
+                    >썸 탈 때 듣기 좋은 노래 ☺️❤️</strong
+                  ></a
+                >
+              </li>
+              <li class="now__item">
+                <a href=""
+                  ><img src="/assets/imgs/now__item(5).png" alt="" /><strong
+                    class="now__item--title"
+                    >썸 탈 때 듣기 좋은 노래 ☺️❤️</strong
+                  ></a
+                >
+              </li>
+            </ul>
+            <div class="button--wrapper">
+              <a href="">나우 편성표</a>
+              <a href="">쇼핑 편성표</a>
+            </div>
+          </div>
+        </section>
+        <div class="card-wrapper">
+          <section class="cards--handout">
+            <h2 class="visually-hidden">지원금 알림</h2>
+            <a href=""
+              ><img
+                src="/assets/imgs/card--handout.png"
+                alt="지원금 사용처 확인"
+            /></a>
+          </section>
+          <section class="cards--ad">
+            <h2 class="visually-hidden">광고</h2>
+            <a href="">
+              <img src="/assets/imgs/card--ad.jpeg" alt="" />
+            </a>
+          </section>
+        </div>
+        <section class="cards--covid-alert">
+          <h2 class="visually-hidden">코로나 알림</h2>
+          <div class="covid--wrapper">
+            <a class="covid__info state" href="">
+              <dl>
+                <dt class="covid__info--main">
+                  <strong class="title">코로나19</strong>
+                </dt>
+                <dd class="covid__info--sub">국내외 확진 현황</dd>
+              </dl>
+            </a>
+            <a class="covid__info vaccine" href="">
+              <dl>
+                <dt class="covid__info--main">
+                  <strong class="title">잔여백신접종</strong>
+                </dt>
+                <dd class="covid__info--sub">우리동네 백신알림</dd>
+              </dl>
+            </a>
+          </div>
+        </section>
+        <section class="cards--channel">
+          <h2 class="visually-hidden">네이버 판</h2>
+          <ul class="channel__list">
+            <li>
+              <a href="" class="channel__item fashion purple"
+                ><dl>
+                  <dt class="channel__item--title">에트로 런웨이 패션쇼</dt>
+                  <dd class="channel__item--desc">
+                    <strong>밀라노 패션위크</strong>
+                    <p>22 SS 여성 컬렉션</p>
+                  </dd>
+                </dl></a
+              >
+            </li>
+            <li>
+              <a href="" class="channel__item book purple"
+                ><dl>
+                  <dt class="channel__item--title">책방판</dt>
+                  <dd class="channel__item--desc">
+                    <strong>독서 고수의 책 추천!</strong>
+                    <p>나의 추석 명절 대비 책</p>
+                  </dd>
+                </dl></a
+              >
+            </li>
+            <li>
+              <a href="" class="channel__item health green"
+                ><dl>
+                  <dt class="channel__item--title">건강판</dt>
+                  <dd class="channel__item--desc">
+                    <strong>망가져도 모르는 콩팥</strong>
+                    <p>이 증상은 위험!</p>
+                  </dd>
+                </dl></a
+              >
+            </li>
+            <li>
+              <a href="" class="channel__item webtoon green"
+                ><dl>
+                  <dt class="channel__item--title">웹툰판</dt>
+                  <dd class="channel__item--desc">
+                    <strong>놓칠 수 없는 꿀잼</strong>
+                    <p>오늘 웹툰 바로 보기</p>
+                  </dd>
+                </dl></a
+              >
+            </li>
+          </ul>
+        </section>
+        <section class="cards--today-naver">
+          <div class="tn__title--wrapper">
+            <h2 class="tn__title" aria-label="오늘 네이버 타이틀"></h2>
+            <a href="" class="tn--more"> 더보기 </a>
+          </div>
+          <ul class="tn__slider">
+            <li>
+              <a class="slider__item" href="">
+                <img src="./assets/imgs/slider__item(1).png" alt="" />
+                <div class="slider__info">
+                  <strong class="slider__info--title"
+                    >네이버 추석 잘알 가이드</strong
+                  >
+                  <p class="slider__info--desc">
+                    차례 가이드부터 요리 꿀팁까지<br />
+                    추석 때 알아야 할 반짝 지식
+                  </p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <div class="tn__slider__btn">
+            <button class="tn__slider__btn__dot is-active"></button>
+            <button class="tn__slider__btn__dot"></button>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer class="footer">
+      <div class="footer__detail--wrapper">
+        <div class="footer__detail">
+          <span>로그인</span>
+          <span>전체서비스</span>
+          <span>PC버전</span>
+        </div>
+        <div class="footer__detail">
+          <span>이용약관</span>
+          <span>개인정보처리방침</span>
+          <span>고객센터</span>
+        </div>
+        <a class="footer--logo" href="" aria-label="네이버 바로가기"></a>
+      </div>
+    </footer>
+  </body>
+</html>
