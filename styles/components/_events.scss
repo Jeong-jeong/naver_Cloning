@@ -68,6 +68,7 @@ $grid-gap: 10px;
     white-space: nowrap;
     &--title {
       @include font($w: 600, $lh: 17px, $ls: -0.65px);
+      @include getEllipsis;
     }
 
     &--desc {
@@ -275,6 +276,7 @@ $grid-gap: 10px;
     }
 
     &--covid-alert {
+      overflow-x: hidden;
       .covid--wrapper {
         @include flexbox($jc: around);
         position: relative;
@@ -282,6 +284,21 @@ $grid-gap: 10px;
 
       .covid__info {
         @include flexbox($jc: start);
+        overflow-x: hidden;
+
+        dl {
+          overflow-x: hidden;
+        }
+
+        &--main {
+          .title {
+            @include getEllipsis;
+          }
+        }
+
+        &--sub {
+          @include getEllipsis;
+        }
 
         &:not(:last-child)::after {
           @include pos-center-x;
@@ -298,6 +315,7 @@ $grid-gap: 10px;
             @include clipImage($w: 38px, $h: 38px, $x: -306px, $y: -43px);
             content: '';
             margin-right: $ico--margin;
+            flex-shrink: 0;
           }
         }
 
@@ -353,7 +371,7 @@ $grid-gap: 10px;
           position: relative;
           &::after {
             @extend %channel__item--img;
-            background: url("/assets/imgs/channel__item--1.png") no-repeat;
+            background: url('/assets/imgs/channel__item1.png') no-repeat;
             background-size: contain;
             top: $channel__item--pd;
             margin-left: $channel--inner-pd;
@@ -364,7 +382,7 @@ $grid-gap: 10px;
           position: relative;
           &::after {
             @extend %channel__item--img;
-            background: url("/assets/imgs/channel__item--2.jpeg") no-repeat;
+            background: url('/assets/imgs/channel__item2.jpeg') no-repeat;
             background-size: contain;
             top: $channel__item--pd;
             margin-left: $channel--inner-pd;
@@ -401,7 +419,7 @@ $grid-gap: 10px;
           position: relative;
           &::after {
             @extend %channel__item--img;
-            background: url("/assets/imgs/channel__item--3.jpeg") no-repeat;
+            background: url('/assets/imgs/channel__item3.jpeg') no-repeat;
             background-size: contain;
             top: $channel__item--pd;
             left: $channel__item--pd;
@@ -412,7 +430,7 @@ $grid-gap: 10px;
           position: relative;
           &::after {
             @extend %channel__item--img;
-            background: url("/assets/imgs/channel__item--4.png") no-repeat;
+            background: url('/assets/imgs/channel__item4.png') no-repeat;
             background-size: contain;
             top: $channel__item--pd;
             left: $channel__item--pd;
