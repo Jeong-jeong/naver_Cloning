@@ -1,0 +1,24 @@
+{
+  "name": "7_naver_mobile",
+  "version": "1.0.0",
+  "description": "모든 CSS 과제는 개발자 도구로 긁어오지 않고, 본인이 직접 구현해봅니다!",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel ./index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prgrms-fe-devcourse/w7-CSS_Vue.git"
+  },
+  "author": "Jeong-jeong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prgrms-fe-devcourse/w7-CSS_Vue/issues"
+  },
+  "homepage": "https://github.com/prgrms-fe-devcourse/w7-CSS_Vue#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.41.1"
+  }
+}
